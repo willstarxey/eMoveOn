@@ -15,12 +15,19 @@ class GMapsController extends Controller
         $config['map_width'] = 689;
         $config['map_height'] = 400;
         $config['zoom'] = 15;
-        $config['icon'] = 'gallery/point.png';
-        $config['onboundschanged'] = "if (!centreGot) {
+        $config['onboundschanged'] = "
+        var image = {
+            url: 'gallery/pint.png',
+            size: new google.maps.Size(40, 60),
+            origin: new google.maps.Point(0,0),
+            anchor: new google.maps.Point(20, 60) 
+           };
+
+        if (!centreGot) {
             var mapCentre = map.getCenter();
             marker_0.setOptions({
-                position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng())
- 
+                position: new google.maps.LatLng(mapCentre.lat(), mapCentre.lng()),
+                icon : image
             });
         }
         centreGot = true;";
@@ -45,10 +52,11 @@ class GMapsController extends Controller
         $config['map_height'] = 400;
         $config['zoom'] = 'auto';
         $config['directions'] = TRUE;
+        $config['icon'] = 'gallery/pint.png';
         $config['directionsStart'] = 'Empire state building';
         $config['directionsEnd'] = 'Statue of liberty';
         $config['directionsDivId'] = 'directionsDiv';
- 
+
         app('map')->initialize($config);
 
         $directions = app('map')->create_map();
