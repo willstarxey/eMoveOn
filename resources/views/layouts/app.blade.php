@@ -40,7 +40,7 @@
                       
                     @else
                         <a class='nav-link' href="{{ route('gmaps') }}">{{ __('Mi Ubicación') }}</a>
-                        <a class='nav-link' href="{{ route('sends') }}">{{ __('Solicitar Envío') }}</a> 
+                        <a class='nav-link' href="{{ route('sends.create') }}">{{ __('Solicitar Envío') }}</a> 
                     @endguest
                     </ul>
 
@@ -53,7 +53,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('¿Quieres ser repartidor?') }}</a>
                                 </li>
                             @endif
                         @else

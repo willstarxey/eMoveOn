@@ -2251,14 +2251,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
     color: #fff;
-    background-color: #3490dc;
-    border-color: #3490dc
+    background-color: #000000;
+    border-color: #000000
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #227dc7;
-    border-color: #2176bd
+    background-color: #222222;
+    border-color: #222222
 }
 
 .btn-primary.focus,
@@ -8705,8 +8705,8 @@ a.text-dark:hover {
 
 @media print {
     *,
-    :after,
-    :before {
+     :after,
+     :before {
         text-shadow: none!important;
         box-shadow: none!important
     }
