@@ -58,6 +58,7 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input type="text" name="repartidor" style="visibility:hidden" value="1">
                             </div>
                         </div>
 
@@ -68,7 +69,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div>
+                        <!--<div>
                             <hr>
                             <div class="col-md-12 offset-md-1">
                                 <a class="btn btn-primary btn-facebook" href="{{ route('facebookLogin') }}">
@@ -80,7 +81,7 @@
                                 <a class="btn btn-primary btn-google" href="{{ route('googleLogin') }}">
                                         {{ __('Registrar con Google') }}
                                 </a>
-                            </div>
+                            </div>-->
                         </div>
                     </form>
                 </div>

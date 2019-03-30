@@ -36,20 +36,20 @@ return [
     ],
 
     'facebook'=> [
-        'client_id' => '419213542185155',
-        'client_secret' => 'ac8575a377b812b9176c5490f274ecdf',
+        'client_id' => env('FACEBOOK_APP_KEY'),
+        'client_secret' => env('FACEBOOK_SECRET_KEY'),
         'redirect' => 'http://localhost:8000/login/facebook/callback',
         ],
 
     'twitter'=> [
-        'client_id' => 'a8MTet2HwT8TLL7xJ4XGHWjue',
-        'client_secret' => 'inQsAFjEtXP8lifkXmfRsdyaRVADwjcsteqE4oevWMqUKUTa3O',
+        'client_id' => env('TWITTER_APP_KEY'),
+        'client_secret' => env('TWITTER_SECRET_KEY'),
         'redirect' => 'http://localhost:8000/login/twitter/callback',
         ],
 
     'google'=> [
-        'client_id' => '576480384852-snr219j8e5s4qqrf7p5pdbuobdinhfpn.apps.googleusercontent.com',
-        'client_secret' => 'jbnizpfXek7XQcjcxShk-B1G',
+        'client_id' => env('GOOGLE_APP_KEY'),
+        'client_secret' => env('GOOGLE_SECRET_KEY'),
         'redirect' => 'http://localhost:8000/login/google/callback',
         ],
 

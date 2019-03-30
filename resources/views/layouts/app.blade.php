@@ -40,7 +40,8 @@
                       
                     @else
                         <a class='nav-link' href="{{ route('gmaps') }}">{{ __('Mi Ubicación') }}</a>
-                        <a class='nav-link' href="{{ route('sends.create') }}">{{ __('Solicitar Envío') }}</a> 
+                        <a class='nav-link' href="{{ route('sends.create') }}">{{ __('Solicitar Envío') }}</a>
+                        <a class='nav-link' href="{{ route('sends.index') }}">{{ __('Stock de Paquetes') }}</a> 
                     @endguest
                     </ul>
 
@@ -49,7 +50,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

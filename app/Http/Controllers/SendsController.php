@@ -15,7 +15,7 @@ class SendsController extends Controller
      */
     public function index()
     {
-        $sends = Sends::paginate();
+        $sends = Sends::paginate()->where('estado',false);
         return view ('sends.index',compact('sends'));
     }
 
@@ -80,8 +80,7 @@ class SendsController extends Controller
      */
     public function edit(Sends $sends)
     {
-        $send = Sends::get();
-        return view('sends.edit', compact('sends','send'));
+        return view('sends.edit', compact('sends'));
     }
 
     /**

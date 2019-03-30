@@ -9,11 +9,13 @@
         "caffeinated/shinobi": "^3.3",
         "fideloper/proxy": "^4.0",
         "genealabs/laravel-maps": "^0.5.7",
+        "gloudemans/shoppingcart": "^2.6",
         "gonoware/laravel-maps": "^1.0",
         "laravel/framework": "5.7.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
-        "laravelcollective/html": "5.7"
+        "laravelcollective/html": "5.7",
+        "srmklive/paypal": "~1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

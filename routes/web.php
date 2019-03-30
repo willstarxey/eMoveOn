@@ -32,10 +32,10 @@ Route::get('login/google','Auth\LoginController@redirectToGoogleProvider')->name
 Route::get('login/google/callback','Auth\LoginController@handleGoogleProviderCallback');
 
 //Google Maps API
-Route::get('/gmaps', ['as ' => 'gmaps', 'uses' => 'GmapsController@index'])->name('gmaps');
+Route::get('/gmaps', 'GmapsController@index')->name('gmaps');
 
-//Route de Envíos
-Route::get('/sends','GmapsController@directions')->name('sends');
+/*/Route de Envíos
+Route::get('/sends','GmapsController@directions')->name('send');*/
 
 Route::post('sends/store','SendsController@store')->name('sends.store')->middleware('permission:sends.create');
 Route::get('sends','SendsController@index')->name('sends.index')->middleware('permission:sends.index');
@@ -46,5 +46,7 @@ Route::get('sends/{sends}/edit','SendsController@edit')->name('sends.edit')->mid
 
 
 Route::middleware(['auth'])->group(function(){
+    //Ruta de envío de datos a PayPal
+    Route::get('/payment', 'PayPalController@pay')->name('payment');
 
 });

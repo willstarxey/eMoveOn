@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48ae4b844cc85943aa8b763e697319db",
+    "content-hash": "f1b4346a5a362a9d854dc4940d37e4cd",
     "packages": [
         {
             "name": "caffeinated/shinobi",
@@ -502,6 +502,66 @@
                 "phpgmaps"
             ],
             "time": "2018-10-05T23:22:37+00:00"
+        },
+        {
+            "name": "gloudemans/shoppingcart",
+            "version": "2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Crinsane/LaravelShoppingcart.git",
+                "reference": "f460ab7312cce32cb428cf39a500a2d16600b1d6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Crinsane/LaravelShoppingcart/zipball/f460ab7312cce32cb428cf39a500a2d16600b1d6",
+                "reference": "f460ab7312cce32cb428cf39a500a2d16600b1d6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/events": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*|| 5.6.* || 5.7.*",
+                "illuminate/session": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*|| 5.6.* || 5.7.*",
+                "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.* || 5.5.*|| 5.6.* || 5.7.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0",
+                "orchestra/testbench": "~3.1",
+                "phpunit/phpunit": "~5.0 || ~6.0 || ~7.0"
+            },
+            "suggest": {
+                "gloudemans/notify": "Simple flash notifications for Laravel"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gloudemans\\Shoppingcart\\ShoppingcartServiceProvider"
+                    ],
+                    "aliases": {
+                        "Cart": "Gloudemans\\Shoppingcart\\Facades\\Cart"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gloudemans\\Shoppingcart\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "info@robgloudemans.nl"
+                }
+            ],
+            "description": "Laravel Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "time": "2019-02-04T14:29:34+00:00"
         },
         {
             "name": "gonoware/laravel-maps",
@@ -2402,6 +2462,61 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "srmklive/paypal",
+            "version": "1.6.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/srmklive/laravel-paypal.git",
+                "reference": "349a5a169dfb1477a7bf26738ab813333f018181"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/srmklive/laravel-paypal/zipball/349a5a169dfb1477a7bf26738ab813333f018181",
+                "reference": "349a5a169dfb1477a7bf26738ab813333f018181",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/support": "~5.1|~5.2|~5.3|~5.4|~5.5|~5.6|~5.7|~5.8",
+                "nesbot/carbon": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Srmklive\\PayPal\\Providers\\PayPalServiceProvider"
+                    ],
+                    "aliases": {
+                        "PayPal": "Srmklive\\PayPal\\Facades\\PayPal"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Srmklive\\PayPal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raza Mehdi",
+                    "email": "srmk@outlook.com"
+                }
+            ],
+            "description": "Laravel plugin For Processing Payments Through Paypal Express Checkout. Can Be Used Independently With Other Applications.",
+            "keywords": [
+                "http",
+                "laravel paypal",
+                "paypal",
+                "rest",
+                "web service"
+            ],
+            "time": "2019-02-27T15:04:12+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

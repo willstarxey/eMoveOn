@@ -20,7 +20,7 @@
                                 @foreach($sends as $send)
                                 <tr>
                                     <td>{{$send->id}}</td>
-                                    <td>{{$send->origen}}</td>
+                                    <td>{{$send->remitente}}</td>
                                     <td>{{$send->destino}}</td>
                                     <td>{{$send->costo}}</td>
                                     <td>
