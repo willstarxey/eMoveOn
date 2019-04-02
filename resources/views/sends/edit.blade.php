@@ -5,22 +5,15 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header  items-align-center">
-                        <p>Datos completos del envío (
-                            @if ($sends->estado == false)
-                                <strong>Paquete aún sin enviar</strong>
-                            @else
-                                <strong>Paquete en ruta</strong>
-                            @endif
-                        )</p>
+                    <div class="row col-md-12 card-header items-align-center">
+                        <p class="col-md-4 float-left">Datos completos del envío</p>
                     </div>
                     <div class="card-body">
-                            <p><strong>Nombre de quien recibe: </strong>{{$sends->nombreDest}}</p>
-                            <p><strong>Origen: </strong>{{$sends->remitente}}</p>
-                            <p><strong>Destino: </strong>{{$sends->destino}}</p>
-                            <p><strong>Dimensiones: </strong>{{$sends->dimensiones}}cm</p>
-                            <p><strong>Peso: </strong>{{$sends->peso}}Kg</p>
-                            <p><strong>Costo: $</strong>{{$sends->costo}}</p>
+                        @include('sends.partials.error')
+                        {!! Form::model($sends,['route'=>['sends.update', $sends->id],
+                        'method'=> 'PUT']) !!}
+                        @include('sends.partials.edit')
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

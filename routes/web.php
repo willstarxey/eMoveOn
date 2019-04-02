@@ -34,19 +34,25 @@ Route::get('login/google/callback','Auth\LoginController@handleGoogleProviderCal
 //Google Maps API
 Route::get('/gmaps', 'GmapsController@index')->name('gmaps');
 
+//Ruta de Pase al Pago
+Route::post('sends/checksend', 'SendsController@parseTo')->name('sends.checksend');
+
 /*/Route de Envíos
 Route::get('/sends','GmapsController@directions')->name('send');*/
 
-Route::post('sends/store','SendsController@store')->name('sends.store')->middleware('permission:sends.create');
-Route::get('sends','SendsController@index')->name('sends.index')->middleware('permission:sends.index');
-Route::get('sends/create','SendsController@create')->name('sends.create')->middleware('permission:sends.create');
-Route::put('sends/{sends}','SendsController@update')->name('sends.update')->middleware('permission:sends.update');
-Route::get('sends/{sends}','SendsController@show')->name('sends.show')->middleware('permission:sends.show');
-Route::get('sends/{sends}/edit','SendsController@edit')->name('sends.edit')->middleware('permission:sends.edit');
+
 
 
 Route::middleware(['auth'])->group(function(){
+    Route::post('sends/store','SendsController@store')->name('sends.store')->middleware('permission:sends.create');
+    Route::get('sends','SendsController@index')->name('sends.index')->middleware('permission:sends.index');
+    Route::get('sends/list','SendsController@list')->name('sends.list')->middleware('permission:sends.list');
+    Route::get('sends/create','SendsController@create')->name('sends.create')->middleware('permission:sends.create');
+    Route::put('sends/{sends}','SendsController@update')->name('sends.update')->middleware('permission:sends.edit');
+    Route::get('sends/{sends}','SendsController@show')->name('sends.show')->middleware('permission:sends.show');
+    Route::get('sends/{sends}/edit','SendsController@edit')->name('sends.edit')->middleware('permission:sends.edit');
     //Ruta de envío de datos a PayPal
-    Route::get('/payment', 'PayPalController@pay')->name('payment');
+    Route::post('/payment', 'PayPalController@pay')->name('payment.paypal');
+    Route::get('/payment/callback', 'PayPalController@payCallback')->name('payment.callback');
 
 });

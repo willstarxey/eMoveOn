@@ -7,7 +7,7 @@
     {{Form::text('peso',null,['class' => 'form-control'])}}
 </div>
 <div class="form-group">
-    {{Form::label('dimensiones', 'Dimensiones (Especificar en CM)')}}
+    {{Form::label('dimensiones', 'Dimensiones (Especificación en CM)')}}
     {{Form::text('dimensiones',null,['class' => 'form-control'])}}
 </div>
 <div class="form-group">
@@ -18,6 +18,8 @@
         {{Form::label('destino', 'Lugar de Destino')}}
         {{Form::text('destino',null,['class' => 'form-control'])}}
 </div>
-<div class="form-group">
-    {{Form::submit('Continuar al pago', ['class' => 'btn btn-primary'])}}
+<div class="row form-group col-md-12">
+    {{Form::submit('Continuar al pago', ['class' => 'btn btn-primary col-md-6'])}}
+    <input id="user_id" name="user_id" 
+        type="text" class="form-control col-md-2" style="visibility: hidden;" value="{{$user}}">
 </div>

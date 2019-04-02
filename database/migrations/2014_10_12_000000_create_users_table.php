@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->decimal('latitud')->nullable();
             $table->decimal('longitud')->nullable();
-            $table->boolean('repartidor')->nullable();
             $table->boolean('disponible')->nullable();
             $table->rememberToken();
             $table->timestamps();

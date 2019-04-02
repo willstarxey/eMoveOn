@@ -8,7 +8,7 @@
                     <div class="card-header">Datos de Envío</div>
                     <div class="card-body">
                         @include('sends.partials.error')
-                        {!! Form::open(['route' => 'sends.store']) !!}
+                        {!! Form::open(['route' => 'sends.checksend']) !!}
                         @include('sends.partials.form')
                         {!! Form::close()!!}
                     </div>

@@ -161,14 +161,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        /**PAQUETE SHINOBI */
-        Caffeinated\Shinobi\ShinobiServiceProvider::class,
+        /**PAQUETE Spatie */
+        Spatie\Permission\PermissionServiceProvider::class,
         /**PAQUETE SOCIALITE */
         Laravel\Socialite\SocialiteServiceProvider::class,
         /**PAQUETE PAYPAL API */
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
-        /*PAQUETE DE CARRITO DE COMPRAS*/
-        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
     ],
 
     /*
@@ -191,7 +189,6 @@ return [
         'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
-        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
@@ -207,7 +204,6 @@ return [
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,
         'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
-        'Permission' => Caffeinated\Shinobi\Facades\Permission::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
         'Redis' => Illuminate\Support\Facades\Redis::class,
@@ -216,7 +212,6 @@ return [
         'Route' => Illuminate\Support\Facades\Route::class,
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
-        'Shinobi' => Caffeinated\Shinobi\Facades\Shinobi::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,

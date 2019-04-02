@@ -12,6 +12,6 @@ class Sends extends Model
      * @var array
      */
     protected $fillable = [
-        'nombreDest', 'remitente', 'destino','peso','dimensiones','costo','estado','repartidor_id',
+        'nombreDest', 'remitente', 'destino','peso','dimensiones','costo','estado','user_id','repartidor_id',
     ];
 }

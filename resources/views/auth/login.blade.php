@@ -5,12 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Iniciar Sesión') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="d-flex flex-column align-items-center">
+                            <div class="col-md-6 row">
+                                <p class="flex-center">Si no te haz registrado, haz click en cualquiera de los botones y te registrará automáticamente</p>
+                            </div>
                             <div class="col-md-6">
                                 <a class="btn btn-block btn-facebook flex-center" href="{{ route('facebookLogin') }}">
                                     {{ __('Iniciar con Facebook') }}
