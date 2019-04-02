@@ -51,12 +51,9 @@ return [
         'client_id' => env('GOOGLE_APP_KEY'),
         'client_secret' => env('GOOGLE_SECRET_KEY'),
         'redirect' => 'http://localhost:8000/login/google/callback',
-        ],
-
-    'google' => [
         'maps' => [
             'api-key' => env('GOOGLE_MAPS_API_KEY'),
         ],
-    ],
+        ],
 
 ];
