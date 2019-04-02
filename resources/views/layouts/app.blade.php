@@ -40,8 +40,15 @@
                       
                     @else
                         <a class='nav-link' href="{{ route('gmaps') }}">{{ __('Mi Ubicación') }}</a>
+                        @can('sends.create')
                         <a class='nav-link' href="{{ route('sends.create') }}">{{ __('Solicitar Envío') }}</a>
-                        <a class='nav-link' href="{{ route('sends.index') }}">{{ __('Stock de Paquetes') }}</a> 
+                        @endcan
+                        @can('sends.index')
+                        <a class='nav-link' href="{{ route('sends.index') }}">{{ __('Stock de Paquetes') }}</a>
+                        @endcan
+                        @can('sends.list')
+                        <a class='nav-link' href="{{ route('sends.list') }}">{{ __('Mis Paquetes') }}</a>
+                        @endcan 
                     @endguest
                     </ul>
 
@@ -81,6 +88,17 @@
         </nav>
 
         <main class="py-4">
+            @if (session('info'))
+                <div class="container">
+                    <div class="row items-align-center justify-content-center">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="alert alert-sucess">
+                                {{session('info')}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
             @yield('content')
         </main>
     </div>

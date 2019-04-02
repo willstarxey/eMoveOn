@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Sends;
 use Illuminate\Http\Request;
 use GeneaLabs\LaravelMaps\Map;
+use App\User;
 
 class SendsController extends Controller
 {
@@ -16,6 +17,12 @@ class SendsController extends Controller
     public function index()
     {
         $sends = Sends::paginate()->where('estado',false);
+        return view ('sends.index',compact('sends'));
+    }
+
+    public function list()
+    {   $user = auth()->user()->id;
+        $sends = Sends::paginate()->where('user_id',$user);
         return view ('sends.index',compact('sends'));
     }
 
@@ -44,8 +51,8 @@ class SendsController extends Controller
         app('map')->initialize($config);
 
         $directions = app('map')->create_map();
-
-        return view('sends.create', compact('directions'));
+        $user = auth()->user()->id;
+        return view('sends.create', compact('directions','user'));
     }
 
     /**
@@ -56,6 +63,7 @@ class SendsController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $send = Sends::create($request->all());
         return redirect()->route('sends.edit',$send->id)
         ->with('info', 'Paquete añadido a Stock');
@@ -69,7 +77,8 @@ class SendsController extends Controller
      */
     public function show(Sends $sends)
     {
-        return view('sends.show',compact('sends'));
+        $repartidor = User::find($sends->repartidor_id);
+        return view('sends.show',compact('sends','repartidor'));
     }
 
     /**
@@ -80,7 +89,8 @@ class SendsController extends Controller
      */
     public function edit(Sends $sends)
     {
-        return view('sends.edit', compact('sends'));
+        $repartidor = $userId = auth()->user()->id;
+        return view('sends.edit', compact('sends','repartidor'));
     }
 
     /**
@@ -93,7 +103,7 @@ class SendsController extends Controller
     public function update(Request $request, Sends $sends)
     {
         $sends->update($request->all());
-        return redirect()->route(sends.edit, $sends->id)
+        return redirect()->route('sends.show', $sends->id)
         ->with('info', 'Has tomado el paquete');
     }
 
@@ -106,5 +116,10 @@ class SendsController extends Controller
     public function destroy(Sends $sends)
     {
         //
+    }
+
+    public function parseTo(Request $request){
+        $send = $request;
+        return view('paypal.paypalsend',compact('send'));
     }
 }

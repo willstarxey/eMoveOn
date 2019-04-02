@@ -22,6 +22,8 @@ class CreateSendsTable extends Migration
             $table->string('dimensiones');
             $table->double('costo')->nullable();
             $table->boolean('estado')->default(false);
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('in')->on('users');
             $table->unsignedInteger('repartidor_id')->nullable();
             $table->foreign('repartidor_id')->references('in')->on('users');
             $table->timestamps();

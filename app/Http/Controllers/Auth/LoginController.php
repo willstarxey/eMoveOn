@@ -136,6 +136,7 @@ class LoginController extends Controller
             $user->email = $userGoogle->email;
             $user->password = bcrypt(123456);
             $user->save();
+            $user->assignRole('Usuario');
             Auth::login($user);
             return view('home');
         }

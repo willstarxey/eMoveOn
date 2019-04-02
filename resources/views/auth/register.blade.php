@@ -59,6 +59,7 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                 <input type="text" name="repartidor" style="visibility:hidden" value="1">
+                                <input type="text" name="disponible" style="visibility:hidden" value="1">
                             </div>
                         </div>
 

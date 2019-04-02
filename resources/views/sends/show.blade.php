@@ -3,24 +3,28 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                    <div class="card-header  items-align-center">
-                            <p>Datos completos del envío (
-                                @if ($sends->estado == false)
-                                    <strong>Paquete aún sin enviar</strong>
-                                @else
-                                    <strong>Paquete en ruta</strong>
-                                @endif
-                            )</p>
-                        </div>
-                        <div class="card-body">
-                                <p><strong>Nombre de quien recibe: </strong>{{$sends->nombreDest}}</p>
-                                <p><strong>Origen: </strong>{{$sends->remitente}}</p>
-                                <p><strong>Destino: </strong>{{$sends->destino}}</p>
-                                <p><strong>Dimensiones: </strong>{{$sends->dimensiones}}cm</p>
-                                <p><strong>Peso: </strong>{{$sends->peso}}Kg</p>
-                                <p><strong>Costo: $</strong>{{$sends->costo}}</p>
-                        </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header row col-md-12">
+                        <p class="col-md-6"><strong>Detalles del Paquete</strong></p>
+                        @if ($sends->estado!=null)
+                            <p class="col-md-6 text-right">Paquete en Ruta</p>
+                        @else
+                            <p class="col-md-6 text-rigth">Paquete sin repartidor</p>
+                        @endif
+                    </div>
+                    <div class="card-body">
+                        <p id="nombreDest"><b>Nombre de la persona que recibe: </b>{{$sends->nombreDest}}</p>
+                        <p id="peso"><b>Peso: </b>{{$sends->peso}}KG</p>
+                        <p id="dimensiones"><b>Dimensiones: </b>{{$sends->dimensiones}}CM</p>
+                        <p id="remitente"><b>Lugar de remitencia: </b>{{$sends->remitente}}</p>
+                        <p id="destino"><b>Lugar de destino: </b>{{$sends->destino}}</p>
+                        <p id="costo"><b>Costo: </b>${{$sends->costo}}</p>
+                        @if ($repartidor != null)
+                            <p><b>Repartidor: {{$repartidor->name}}</b></p>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Paquetes en Stock</div>
+                    <div class="card-header">Mis Paquetes</div>
                     <div class="card-body">
                         <table class="table table-striped table-hover">
                             <thead>
@@ -24,7 +24,7 @@
                                     <td>{{$send->destino}}</td>
                                     <td>${{$send->costo}}</td>
                                     <td>
-                                            <a href="{{route('sends.edit',$send->id)}}" class="btn btn-sm btn-primary">Detalles</a>
+                                            <a href="{{route('sends.show',$send->id)}}" class="btn btn-sm btn-primary">Detalles</a>
                                     </td>
                                 </tr>
                                 @endforeach
