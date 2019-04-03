@@ -16,14 +16,14 @@ class SendsController extends Controller
      */
     public function index()
     {
-        $sends = Sends::paginate()->where('estado',false);
+        $sends = Sends::where('estado','=',false)->paginate();
         return view ('sends.index',compact('sends'));
     }
 
     public function list()
     {   $user = auth()->user()->id;
-        $sends = Sends::paginate()->where('user_id',$user);
-        return view ('sends.index',compact('sends'));
+        $sends = Sends::where('user_id','=',$user)->paginate();
+        return view ('sends.list',compact('sends'));
     }
 
     /**
@@ -33,26 +33,33 @@ class SendsController extends Controller
      */
     public function create()
     {
-        $config['center'] = 'auto';
-        $config['map_width'] = 689;
-        $config['map_height'] = 400;
-        $config['zoom'] = 'auto';
-        $config['directions'] = TRUE;
-        $config['places'] = TRUE;
-        $config['placesAutocompleteInputID'] = 'remitente';
-        $config['placesAutocompleteBoundsMap'] = TRUE;
-        $config['placesAutocompleteOnChange'] = 'alert(\'Tienes que seleccionar un lugar\');';
-        $config['icon'] = 'gallery/pint.png';
-        $config['directionsStart'] = $config['placesAutocompleteInputID'];
-        $config['placesAutocompleteInputID'] = 'destino';
-        $config['directionsEnd'] = $config['placesAutocompleteInputID'];
-        $config['directionsDivId'] = 'directionsDiv';
+        $remitente['center'] = 'auto';
+        $remitente['zoom'] = 'auto';
+        $remitente['places'] = TRUE;
+        $remitente['icon'] = 'gallery/pint.png';
+        $remitente['placesAutocompleteInputID'] = 'remitente';
+        $remitente['lenguage'] = 'es_MX';
+        $remitente['placesAutocompleteBoundsMap'] = TRUE;
+        $remitente['placesAutocompleteOnChange'] = 'alert(\'Tienes que seleccionar un lugar\');';
+        app('map')->initialize($remitente);
+        $rem = app('map')->create_map();
 
-        app('map')->initialize($config);
+        $destino['center'] = 'auto';
+        $destino['zoom'] = 'auto';
+        $destino['places'] = TRUE;
+        $destino['icon'] = 'gallery/pint.png';
+        $remitente['lenguage'] = 'es_MX';
+        $destino['placesAutocompleteInputID'] = 'destino';
+        $destino['placesAutocompleteBoundsMap'] = TRUE;
+        $destino['placesAutocompleteOnChange'] = 'alert(\'Tienes que seleccionar un lugar\');';
+        app('map')->initialize($destino);
+        $dest = app('map')->create_map();
 
-        $directions = app('map')->create_map();
+        //$map['jsfile'] = 'js/mapa.js';
+        //$mapa = app('map')->initialize($map);
+
         $user = auth()->user()->id;
-        return view('sends.create', compact('directions','user'));
+        return view('sends.create', compact('rem','dest','user'));
     }
 
     /**

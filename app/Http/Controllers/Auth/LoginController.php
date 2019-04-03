@@ -49,7 +49,6 @@ class LoginController extends Controller
      */
     public function redirectToFacebookProvider(){
         return Socialite::driver('facebook')->redirect();
-        //return Socialite::driver('twitter')->redirect();
     }
 
     /**Obtiene la información de
@@ -58,7 +57,6 @@ class LoginController extends Controller
      */
     public function handleFacebookProviderCallback(){
         $userFacebook = Socialite::driver('facebook')->user();
-        //return $userFacebook->name;
         $findUser = User::where('email',$userFacebook->email)->first();
         if($findUser){
             Auth::login($findUser);
@@ -69,6 +67,7 @@ class LoginController extends Controller
             $user->email = $userFacebook->email;
             $user->password = bcrypt(123456);
             $user->save();
+            $user->assignRole('Usuario');
             Auth::login($user);
             return view('home');
         }
@@ -84,7 +83,6 @@ class LoginController extends Controller
      */
     public function redirectToTwitterProvider(){
         return Socialite::driver('twitter')->redirect();
-        //return Socialite::driver('twitter')->redirect();
     }
 
     /**Obtiene la información de
@@ -93,7 +91,6 @@ class LoginController extends Controller
      */
     public function handleTwitterProviderCallback(){
         $userTwitter = Socialite::driver('twitter')->user();
-        //return $userTwitter->name;
         $findUser = User::where('email',$userTwitter->email)->first();
         if($findUser){
             Auth::login($findUser);
@@ -104,6 +101,7 @@ class LoginController extends Controller
             $user->email = $userTwitter->email;
             $user->password = bcrypt(123456);
             $user->save();
+            $user->assignRole('Usuario');
             Auth::login($user);
             return view('home');
         }

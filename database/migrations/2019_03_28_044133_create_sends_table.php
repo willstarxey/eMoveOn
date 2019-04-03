@@ -23,9 +23,9 @@ class CreateSendsTable extends Migration
             $table->double('costo')->nullable();
             $table->boolean('estado')->default(false);
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('in')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('repartidor_id')->nullable();
-            $table->foreign('repartidor_id')->references('in')->on('users');
+            $table->foreign('repartidor_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
