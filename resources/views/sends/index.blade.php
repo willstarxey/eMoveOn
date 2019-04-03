@@ -30,6 +30,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{$sends->render()}}
                     </div>
                 </div>
             </div>
