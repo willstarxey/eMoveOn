@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registrate para ser repartidor eMoveOn') }}</div>
+                <div class="card-header">{{ __('Registrate para ser repartidor ') }}<strong>eMoveOn</strong></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -58,7 +58,6 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                <input type="text" name="repartidor" style="visibility:hidden" value="1">
                                 <input type="text" name="disponible" style="visibility:hidden" value="1">
                             </div>
                         </div>

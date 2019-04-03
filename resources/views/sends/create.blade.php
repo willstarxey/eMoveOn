@@ -16,13 +16,18 @@
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Mapa</div>
+                    <div class="row align-items-center card-header col-md-12">
+                        <p class="col-md-2 p-no-rem">Mapa</p>
+                        <p class="col-md-3 p-no-rem" id="tiempo" for="tiempo"></p>
+                        <p class="row col-md-4 p-no-rem justify-content-center" id="distancia" for="distancia">Click al mapa para actualizar</p>
+                        <p class="col-md-3 p-no-rem" id="pago" for="pago"></p>
+                    </div>
                     <div class="card-body">
-                        {!!$directions['js']!!}
-                        {!!$directions['html']!!}
-                        <div id="directionsId"></div>
+                        <div id="map"></div>
                     </div>
                 </div>
+                <script type="text/javascript" src="/js/mapa.js"></script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key={{env('GOOGLE_MAPS_API_KEY')}}&callback=initMap"></script>
             </div>
         </div>
     </div>
