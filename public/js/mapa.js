@@ -76,7 +76,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
             costos.innerHTML = 'Costo: ';
 
             console.log(route.legs.length);
-            document.getElementById('costo').readonly = 'readonly';
             for (var i = 0; i < route.legs.length; i++) {
                 if ((route.legs[i].distance.value / 60) < 60) {
                     tiempos.innerHTML += (route.legs[i].distance.value / 60).toFixed(2) + ' min';

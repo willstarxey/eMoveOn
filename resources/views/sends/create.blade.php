@@ -16,11 +16,11 @@
             </div>
             <div class="col-md-8">
                 <div class="card">
-                    <div class="row card-header col-md-12">
-                        <b class="col-md-2">Mapa</b>
-                        <b class="col-md-3"><p id="tiempo" for="tiempo"></p></b>
-                        <b class="row col-md-3"><p id="distancia" for="distancia"></p></b>
-                        <b class="col-md-3"><p id="pago" for="pago"></p></b>
+                    <div class="row align-items-center card-header col-md-12">
+                        <p class="col-md-2 p-no-rem">Mapa</p>
+                        <p class="col-md-3 p-no-rem" id="tiempo" for="tiempo"></p>
+                        <p class="row col-md-4 p-no-rem justify-content-center" id="distancia" for="distancia">Click al mapa para actualizar</p>
+                        <p class="col-md-3 p-no-rem" id="pago" for="pago"></p>
                     </div>
                     <div class="card-body">
                         <div id="map"></div>

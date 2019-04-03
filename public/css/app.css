@@ -106,6 +106,11 @@ p {
     margin-bottom: 1rem
 }
 
+.p-no-rem {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
 abbr[data-original-title],
 abbr[title] {
     text-decoration: underline;
@@ -4343,6 +4348,13 @@ input[type=submit].btn-block {
 
 .card-header {
     padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .03);
+    border-bottom: 1px solid rgba(0, 0, 0, .125)
+}
+
+.card-header-alt {
+    padding: .30rem 1.25rem;
     margin-bottom: 0;
     background-color: rgba(0, 0, 0, .03);
     border-bottom: 1px solid rgba(0, 0, 0, .125)
@@ -10361,4 +10373,9 @@ body {
     width: 689px;
     height: 470px;
     margin: 0%;
+}
+
+.success {
+    width: 30%;
+    height: 30%;
 }
