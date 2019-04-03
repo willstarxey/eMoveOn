@@ -9,36 +9,40 @@ class PayPalController extends Controller
 {
 
     /**VARIABLE GLOBAL DEL REQUEST PARA EL PAQUETE*/
-    public $package;
-
+    private $costo;
+    
     public function pay(Request $request){
-        $this->package=$request;
+        if ($request->costo != null) {
+            $this->costo = $request->costo;
+        }
         $provider = \PayPal::setProvider('express_checkout');
         $provider->setCurrency('MXN');
         $invoiceId = uniqid();
-        $data = $this->sendData($this->package, $invoiceId);
+        $data = $this->sendData($invoiceId);
         $response = $provider->setExpressCheckout($data);
+        Sends::create(['nombreDest'=>$request->nombreDest,'remitente'=>$request->remitente,'destino'=>$request->destino,
+                    'peso'=>substr($request->peso,-3,1),'dimensiones'=>$request->dimensiones,
+                    'costo'=>$request->costo,'user_id'=>$request->user_id]);
         return redirect($response['paypal_link']);
     }
 
-    public function payCallback(Request $request){
+    public function payCallback(Request $req){
         $provider = \PayPal::setProvider('express_checkout');
-        $token = $request->token;
-        $PayerID = $request->PayerID;
+        $token = $req->token;
+        $PayerID = $req->PayerID;
         $response =$provider->getExpressCheckoutDetails($token);
         $invoiceId = $response['INVNUM']??uniqid();
-        $data = $this->sendData($this->package,$invoiceId);
+        $data = $this->sendData($invoiceId);
         $response = $provider->doExpressCheckoutPayment($data ,$token,$PayerID);
-        Sends::create($this->package->all());
-        return "Paquete agregado con éxito a stock";
+        return view('paypal.success');
     }
 
-    protected function sendData($request, $invoiceId){
+    protected function sendData($invoiceId){
         $data = [];
         $data['items']=[
             [
                 'name' => 'Envío eMoveOn',
-                'price' => $request->costo,
+                'price' => $this->costo,
                 'qty' => 1
             ]
         ];

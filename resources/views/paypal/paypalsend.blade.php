@@ -32,7 +32,7 @@
                         </div>
                         <div class="row col-md-12">
                             <p id="costo" name="costo" class="col-md-6"><b>Costo: </b></p>
-                            <input class="col-md-6 form-control" type="text" value="30" name="costo" id="costo">
+                            <input class="col-md-6 form-control" type="text" name="costo" id="costo" value="{{$send->costo}}" readonly="readonly">
                         </div>
                         <div class="row col-md-12 justify-content-center">
                             <input class="col-md-4" type="text" style="visibility: hidden;" value="0" name="estado" id="estado">
