@@ -47,6 +47,7 @@ Route::middleware(['auth'])->group(function(){
     Route::post('sends/store','SendsController@store')->name('sends.store')->middleware('permission:sends.create');
     Route::get('sends','SendsController@index')->name('sends.index')->middleware('permission:sends.index');
     Route::get('sends/list','SendsController@list')->name('sends.list')->middleware('permission:sends.list');
+    Route::get('sends/packer','SendsController@packer')->name('sends.packer')->middleware('permission:sends.packer');
     Route::get('sends/create','SendsController@create')->name('sends.create')->middleware('permission:sends.create');
     Route::put('sends/{sends}','SendsController@update')->name('sends.update')->middleware('permission:sends.edit');
     Route::get('sends/{sends}','SendsController@show')->name('sends.show')->middleware('permission:sends.show');

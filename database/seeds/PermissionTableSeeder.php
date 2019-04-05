@@ -32,6 +32,9 @@ class PermissionTableSeeder extends Seeder
         Permission::create([
             'name' => 'sends.list'
         ]);
+        Permission::create([
+            'name' => 'sends.packer'
+        ]);
 
         /**CREACION DE ROLES */
         $user = Role::create(['name' => 'Usuario']);
@@ -41,7 +44,7 @@ class PermissionTableSeeder extends Seeder
 
         $repartidor = Role::create(['name' => 'Repartidor']);
         $repartidor->givePermissionTo([
-            'sends.edit','sends.show','sends.index','sends.update'
+            'sends.edit','sends.show','sends.index','sends.update','sends.packer'
         ]);
     }
 }

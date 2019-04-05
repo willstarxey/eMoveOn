@@ -9136,7 +9136,8 @@ fieldset[disabled] .btn-dropbox.focus {
 
 .btn-facebook {
     color: #fff;
-    background-color: #3b5998;
+    /*background-color: #3b5998;*/
+    background-color: #1b2946;
     border-color: rgba(0, 0, 0, 0.2)
 }
 
@@ -9396,7 +9397,8 @@ fieldset[disabled] .btn-github.focus {
 
 .btn-google {
     color: #fff;
-    background-color: #dd4b39;
+    /*background-color: #dd4b39;*/
+    background-color: #491a14;
     border-color: rgba(0, 0, 0, 0.2)
 }
 
@@ -10046,7 +10048,8 @@ fieldset[disabled] .btn-tumblr.focus {
 
 .btn-twitter {
     color: #fff;
-    background-color: #55acee;
+    /*background-color: #55acee;*/
+    background-color: #21415a;
     border-color: rgba(0, 0, 0, 0.2)
 }
 

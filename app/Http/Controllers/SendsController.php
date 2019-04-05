@@ -26,6 +26,12 @@ class SendsController extends Controller
         return view ('sends.list',compact('sends'));
     }
 
+    public function packer()
+    {   $user = auth()->user()->id;
+        $sends = Sends::where('repartidor_id','=',$user)->paginate();
+        return view ('sends.packer',compact('sends'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

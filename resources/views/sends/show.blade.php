@@ -4,13 +4,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header row col-md-12">
-                        <p class="col-md-6"><strong>Detalles del Paquete</strong></p>
+                <div class="card col-md-12">
+                    <div class="row card-header">
+                        <p class="col-md-6 text-left"><strong>Detalles del Paquete</strong></p>
                         @if ($sends->estado!=null)
                             <p class="col-md-6 text-right">Paquete en Ruta</p>
                         @else
-                            <p class="col-md-6 text-rigth">Paquete sin repartidor</p>
+                            <p class="col-md-6 text-right">Paquete sin repartidor</p>
                         @endif
                     </div>
                     <div class="card-body">
