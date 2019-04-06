@@ -27,6 +27,7 @@ class SendsController extends Controller
     }
 
     public function packer()
+    //comentariuo
     {   $user = auth()->user()->id;
         $sends = Sends::where('repartidor_id','=',$user)->paginate();
         return view ('sends.packer',compact('sends'));
